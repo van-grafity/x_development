@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_form" model="ir.ui.view">
+        <field name="name">rental.rental.view.form</field>
+        <field name="model">customer.model</field>
+        <field name="arch" type="xml">
+            <form string="DETAIL">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="identity_number"/>
+                            <field name="email"/>
+                            <field name="phone_number"/>
+                            <field name="address"/>
+                            <field name="username"/>
+                            <field name="password"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+        <!-- <button name="278" string="Create Invoice" type="action"> -->
+    </record>
+    
+    <record id="customer_tree" model="ir.ui.view">
+        <!-- <field name="name">car.car.view.tree</field> -->
+        <field name="model">customer.model</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Templates">
+                <field name="name"/>
+                <field name="identity_number"/>
+                <field name="email"/>
+                <field name="phone_number"/>
+                <field name="address"/>
+                <field name="username"/>
+                <field name="password"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_customer_action" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="res_model">customer.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

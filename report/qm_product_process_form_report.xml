@@ -1,0 +1,281 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <template id="qm_product_process_form_res_template">
+        <div>
+            <div style="padding-left: 14px; padding-right: 14px;">
+                <div class="ste-title-size ste-title-padding-left align-vertical-center" style="font-size: 22px; text-align:center;">
+                    <b>Product Process Form</b>
+                    <!-- <span class="fsize-normal text-center"  t-raw="o.id"/> -->
+                </div>
+                <div class="ste-title-size ste-title-padding-left align-vertical-center" style="text-align:center; margin-bottom: 30px; margin-top: 14px;">
+                    <b><span class="fsize-normal text-center" style="font-size: 20px;" t-raw="o.product_id.name"/> PART A ADDITIVE RECORD</b>
+                    <!-- <span class="fsize-normal text-center"  t-raw="o.id"/> -->
+                </div>
+
+                <div class="ste-content-padding-bottom-top" style="padding-left:18px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <b><span style="font-size: 18px;" t-raw="o.product_id.default_code"/></b>
+                            </td>
+                            <td>
+                              <span style="font-size: 18px;"><b>A ADD BN:</b></span>
+                            </td>
+                            <td style="padding-left: 4px; padding-right: 4px;">
+                                <span style="font-size: 18px;" t-raw="o.product_id.name"/>
+                                <hr class="under-line-custom"/>
+                            </td>
+                            <td>
+                              <span style="font-size: 18px;"><b>Lits(20LIT)</b></span>
+                            </td>
+                            
+                            <td style="margin: 0px; padding: 0px;">
+                                <span style="font-size: 18px;"><b>BN:</b></span>
+                            </td>
+                            <td style="margin: 0px; padding: 0px;">
+                                <span style="font-size: 18px; margin: 0px; padding: 0px;" t-raw="o.lot_producing_id.name"/>
+                                <hr class="under-line-custom"/>
+                            </td>
+                            <td>
+                                <span class="fsize-normal" style="font-size: 18px;"><b>Lits(30LIT)</b></span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                          <td style="padding-top: 14px;"/>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span style="font-size: 20px;"><b>Quantity:</b></span>
+                            </td>
+                            <td>
+                                <span style="padding-left: 8px; padding-right: 8px; font-size: 20px;" t-raw="o.product_qty"/>
+                            </td>
+                            <td>
+                              <span style="font-size: 20px;"><b>Lits</b></span>
+                            </td>
+                            <td>
+                                <span style="padding-left: 8px; padding-right: 8px; font-size: 20px;"><b>TANK No.</b></span>
+                            </td>
+                            <td>
+                                <hr class="under-line-custom"/>
+                            </td>
+                            <td>
+                                <span style="padding-left: 8px; font-size: 20px;"><b>Date:</b></span>
+                            </td>
+                            <td>
+                                <div>
+                                  <span style="font-size: 20px;" t-raw="o.date_planned_start"/>
+                                  <hr class="under-line-custom"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div style="padding-left: 18px; padding-right: 18px;">
+                    <table style="width: 100%; border: 1px solid black;">
+                        <thead>
+                            <tr>
+                                <th class="qmtitle">No</th>
+                                <th class="qmtitle">Chemical Name</th>
+                                <th class="qmtitle">Quantity</th>
+                                <th class="qmtitle">Batch No.</th>
+                                <th class="qmtitle">CheckingBy</th>
+                                <th class="qmtitle">Operator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="i" t-value="1"/>
+                            <t t-foreach="o.move_raw_ids" context="{'default_product_uom_qty': 1.0, 'default_date': date_planned_start, 'default_date_deadline': date_deadline, 'default_location_id': location_src_id, 'default_location_dest_id': production_location_id, 'default_state': 'draft', 'default_raw_material_production_id': id, 'default_picking_type_id': picking_type_id, 'default_company_id': company_id}" attrs="{'readonly': ['|', ('state', '=', 'cancel'), '&amp;', ('state', '=', 'done'), ('is_locked', '=', True)]}" options="{'delete': [('state', '=', 'draft')]}" t-as="l">
+                                <tr class="tborder">
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;"> 
+                                      <span t-esc="i"/>
+                                    </td>
+                                    <t t-set="i" t-value="i+1"/>
+                                    <td style="padding-left: 4px; padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;" t-field="l.product_id"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;" t-field="l.quantity_done"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;" t-field="o.product_id.default_code"/>
+                                    </td>
+                                     <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;" t-field="o.name"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div class="background" style="padding-top: 6px; padding-bottom: 6px;">
+                        <span style="font-size: 20px;"><b>Product Process</b></span>
+                    </div>
+                    <table style="width: 100%; border: 1px solid black;">
+                        <thead>
+                            <tr>
+                                <th class="qmtitle">No</th>
+                                <th class="qmtitle">Process Flow</th>
+                                <th class="qmtitle">Operator</th>
+                                <th class="qmtitle">Time</th>
+                                <th class="qmtitle">Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="i" t-value="1"/>
+                            <t t-foreach="o.production_product_process_check_ids" t-as="x">
+                                <tr class="tborder">
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;"> 
+                                      <span t-esc="i"/>
+                                    </td>
+                                    <t t-set="i" t-value="i+1"/>
+                                    <td style="padding-left: 4px; padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;" t-field="x.name"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;" t-field="x.check_user_id"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;" t-field="x.check_date"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 16px;"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="padding-left: 18px; margin-top: 22px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <span style="font-size: 18px"><b>Review By: </b></span> 
+                            </td>
+                            <td colspan="3">
+                                <span style="padding-left: 18px;"/>___________________________________________________
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                          <td style="padding-bottom: 14px;"/>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span style="font-size: 18px"><b>Packing Operator:</b></span> 
+                            </td>
+                            <td colspan="3">
+                                <span style="padding-left: 18px;"/>___________________________________________________
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                          <td style="padding-top: 14px;"/>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span style="font-size: 18px"><b>Label: </b></span> 
+                            </td>
+                            <td colspan="3">
+                                <span style="padding-left: 18px;"/>___________________________________________________
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <style type="text/css">
+            .qmtitle {
+              text-align: center; 
+              padding-top: 8px; 
+              border: 1px solid black;
+              font-weight: bold; 
+              font-size: 16px;
+            }
+            
+            .under-line-custom {
+              text-align:left;
+              background-color:black; 
+              margin: 0px;
+            }
+            
+            .align-vertical-center {
+              vertical-align: "middle"; 
+              text-align:"center";
+            }
+            
+            .ste-content-padding-bottom-top {
+              padding-top: 8px;
+              padding-bottom: 8px;
+            }
+            
+            td th {
+              height: 70px;
+              <!--line-height: 24px; -->
+            }
+        </style>
+    </template>
+
+    <template id="qm_product_process_form_report">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <div class="header">
+                        <!-- <img class="img" src="/mrp/static/img/ic_qm.png" style="width:65%; height: auto; display: block;  margin: auto;  position:absolute; z-index: 1;  left: 0; right: 0; bottom: -100px; overflow:hidden;"/> -->
+                    </div>
+                    <div class="page">
+                        <t t-call="odes_qm_custom.qm_product_process_form_res_template"/>
+                    </div>
+                    <div class="footer">
+                        <!-- This is Footer -->
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_a4_no_header" model="report.paperformat">
+            <field name="name">Paper A4 No Header</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">15</field>
+            <field name="margin_bottom">15</field>
+            <field name="margin_left">15</field>
+            <field name="margin_right">15</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="action_report_qm_product_process_form" model="ir.actions.report">
+            <field name="name">QM Product Process Form (PDF)</field>
+            <field name="model">mrp.production</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">odes_qm_custom.qm_product_process_form_report</field>
+            <field name="report_file">odes_qm_custom.qm_product_process_form_report</field>
+            <field name="print_report_name">'QM Product Process Form - %s' % object.name</field>
+            <field name="binding_model_id" ref="model_mrp_production"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- <record id="action_report_qm_product_process_form" model="ir.actions.report">
+        <field name="paperformat_id" ref="odes_qm_custom.paperformat_a4_no_header" />
+    </record> -->
+</data>
+</odoo> -->

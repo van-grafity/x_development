@@ -1,0 +1,355 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="qm_product_travel_control_res_template">
+      <div>
+        <div>
+          <div class="align-vertical-center" style="font-size: 20px; text-align:center;">
+              <b>QM ENTERPRISES PTE LTE</b>
+          </div>
+          <div class="align-vertical-center" style="font-size: 22px; text-align:center; margin-bottom: 18px; margin-top: 14px;">
+              <b><span class="text-center" style="font-size: 20px;" t-raw="o.product_id.name"/>PRODUCT TRAVEL CONTROL</b>
+          </div>
+        </div>
+              
+        <div>
+          <table style="width: 100%; padding-left: 14px; border: 2px solid black;">
+            <tr>
+              <th width="10%" class="fsize-20" style="border: 0px; padding-left: 4px; vertical-align: middle;">Product Name :</th>
+              <td width="20%" style="border: 0px;">________________________</td>
+              <th width="10%" style="border: 0px;"/>
+              <th width="20%" style="border: 0px;"/>
+            </tr>
+            <tr>
+              <th width="10%" class="fsize-20" style="border: 0px; padding-left: 4px; vertical-align: middle;">Batch Number :</th>
+              <td width="20%" style="border: 0px;">________________________</td>
+              <th width="10%" style="border: 0px;"/>
+              <th width="20%" style="border: 0px;"/>
+            </tr>
+            <tr>
+              <th width="10%" class="fsize-20" style="border: 0px; padding-left: 4px; vertical-align: middle;"/>
+              <td width="20%" style="border: 0px;">________________________</td>
+              <th width="10%" style="border: 0px;"/>
+              <th width="20%" style="border: 0px;"/>
+            </tr>
+            <tr>
+              <th width="10%" class="fsize-20" style="padding-left: 4px; vertical-align: middle;">Production Date :</th>
+              <td width="20%" style="border: 0px;">________________________</td>
+              <th width="10%" style="border: 0px;"/>
+              <th width="20%" style="border: 0px;"/>
+            </tr>
+            <tr>
+              <th width="10%" class="fsize-20" style="border: 0px; padding-left: 4px; vertical-align: middle;">Date Sign <br/>of PTC Given</th>
+              <td width="20%" style="vertical-align: middle;"> : ________________________</td>
+              <th width="10%" class="fsize-20" style="border: 0px; margin-left: 44px; vertical-align: middle;">Date Sign <br/>of PTC Received</th>
+              <th width="20%" style="vertical-align: middle;"> : ________________________</th>
+            </tr>
+          </table>
+        </div>
+              
+        <div>
+          <table style="width: 100%;">
+            <tr>
+              <th style="margin-top: 14px;">
+                <div class="text-center" style="verticcal-align: bottom; border: 0px; border-left: 2px solid black; border-right: 2px solid black;">
+                  <span class="fsize-20">*This section is not required for non-EN products</span>
+                </div>
+              </th>
+              <th>
+                <div class="text-center">
+                  <span class="fsize-24"><u>Lab Analysis</u></span>
+                </div>
+              </th>
+              <!--<th style="border: 1px;">-->
+              <!--  <div style="border-right: 1px; solid black"><span>Tes</span></div>-->
+              <!--</th>-->
+            </tr>
+            
+            <tr>
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              <th style="width: 60%; border: 2px solid black; border-top: 0px; border-bottom: 0px;">
+                <div style="padding-left: 14px;">
+                  
+                  <div style="padding-top: 18px;">
+                    <div>
+                      <span class="fsize-20"><b>First Sample 1 Analysis:</b></span>
+                    </div>
+                    
+                    <div>
+                      <div class="div-border-dashed" style="position: absolute; margin-left: 300px;">
+                        <div class="text-center" style="width: 180px;">
+                          <!--<span>Weight of 0.5ml of<br/>New</span>-->
+                          <!--<span>sample 1 / F</span>-->
+                          <!--<span>userd for</span>-->
+                          <!--<span>content checking</span>-->
+                          <!--<span>_____</span>-->
+                        </div>
+                    </div>
+                      <div>
+                        <span class="fsize-18">pH :</span>________________________
+                      </div>
+                      <div>
+                        <span class="fsize-18">SG :</span>________________________
+                      </div>
+                      <div>
+                        <span class="fsize-18">NiSO :</span>________________________
+                      </div>
+                      <div>
+                        <span class="fsize-18">Hypo :</span>________________________
+                      </div>
+                      <div>
+                        <span class="fsize-18">Apperance :</span>________________________
+                      </div>
+                      <div>
+                        <span class="fsize-18">Colour :</span>________________________
+                      </div>
+                      <div>
+                        <span class="fsize-18">Date :</span>________________________
+                      </div>
+                      <div>
+                        <span class="fsize-18">Analysed By :</span>________________________
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div style="padding-top: 24px; padding-bottom: 18px;">
+                    <div>
+                      <span class="fsize-20"><b>Final Sample F Analysis:</b></span>
+                    </div>
+                    
+                    <div>
+                      <span class="fsize-18">pH :</span>________________________
+                    </div>
+                    <div>
+                      <span class="fsize-18">SG :</span>________________________
+                    </div>
+                    <div>
+                      <span class="fsize-18">Apperance :</span>________________________
+                    </div>
+                    <div>
+                      <span class="fsize-18">Colour :</span>________________________
+                    </div>
+                    <div>
+                      <span class="fsize-18">Date :</span>________________________
+                    </div>
+                    <div>
+                      <span class="fsize-18">Analysed By :</span>________________________
+                    </div>
+                  </div>
+                </div>
+              </th>
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              <th rowspan="2" style="border: 2px solid black; border-top: 0px; border-bottom: 0px; border-right: 2px solid black; width: 40%;">
+                  <div class="text-center">
+                    <span class="fsize-24"><u>Fill by Production</u></span>
+                  </div>
+                <div style="padding-left: 14px;">
+                  <div>
+                    <div>
+                      <span class="fsize-20"><b>Special Testing Required <br/>(3 Working Days in Advance)</b></span>
+                    </div>
+                    <div>
+                      <span>YES/NO : </span>________________________
+                    </div>
+                  </div>
+                  
+                  <div style="padding-top: 14px; padding-bottom: 14px;"/>
+                  
+                  <div>
+                    <div>
+                      <span class="fsize-20"><b>COA Needed</b></span>
+                    </div>
+                    <div>
+                      <span class="fsize-18">Date Time : </span>________________________
+                    </div>
+                  </div>
+                  
+                  <div style="padding-top: 40px; padding-bottom: 150px;"/>
+                  
+                  <div>
+                    <div>
+                      <span class="fsize-20"><b>Special Testing Required <br/>For 2250, 2251, 1118</b></span>
+                    </div>
+                    <div>
+                      <span class="fsize-18">Manual :</span>________________________
+                    </div>
+                      <div>
+                      <span class="fsize-18">Packing Date : </span>________________________
+                    </div>
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </table>
+        </div>
+        
+        <div class="content-padding-bottom-top" style="border: 2px solid black;">
+          <div style="margin-bottom: 16px;">
+            <div class="text-center">
+              <span class="fsize-20"><b>Final Result:</b></span>
+            </div>
+            <div class="text-center">
+              <span class="fsize-18"><b>(Third Day Analysis-for EN, sample F Result-for non-EN)</b></span>
+            </div>
+          </div>
+          
+          <div class="flex-htmltopdf-vgroup" style="margin-left: 44px; padding-bottom: 20px;">
+            <div style="flex: 1">
+              <div>
+                <span class="fsize-18"><b>Checked by: </b></span>________________________
+              </div>
+              <div>
+                <span class="fsize-18"><b>Date :</b></span>________________________
+              </div>
+            </div>
+            
+            <div style="flex: 1">
+              <div style="margin-left: 44px;">
+                <span class="fsize-18"><b>pH: </b></span>________________________
+                <span>SG: </span>______
+              </div>
+              <div style="margin-left: 44px;">
+                <span class="fsize-18"><b>Apperance :</b></span>________________________
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-left: 44px;">
+            <div>
+              <span class="fsize-18"><b>Heacy Metal Analysis Accepted and Checked by : </b></span>________________________
+            </div>
+            <div style="padding-top: 8px; padding-bottom: 8px;"/>
+            <div>
+              <span class="fsize-18"><b>Result : </b></span>________________________
+            </div>
+            <div>
+              <span class="fsize-18"><b>Raised Non-Conformance Record :</b></span>________________________
+            </div>
+          </div>
+        </div>
+        
+        <div style="padding-left: 14px; border: 2px solid black; border-top: 0px; padding-top: 14px; padding-bottom: 14px;">
+          <div>
+            <pan><b>COA Prepared By and Date: </b></pan>________________________
+          </div>
+          <div>
+            <pan><b>COA Reviewed By and Date: </b></pan>________________________
+          </div>
+        </div>
+      </div>
+
+      <style type="text/css">
+        .fsize-14 {
+          font-size: 16px;
+        }
+        
+        .fsize-16 {
+          font-size: 18px;
+        }
+        
+        .fsize-16 {
+          font-size: 18px;
+        }
+        
+        .fsize-20 {
+          font-size: 20px;
+        }
+        
+        .fsize-24 {
+          font-size: 24px;
+        }
+        
+        .fsize-26 {
+          font-size: 26px;
+        }
+        
+        hr {
+            max-width: 100px;
+            margin: 0px;
+        }
+
+        .qmtitle {
+            text-align: center; 
+            padding-top: 8px; 
+            border: 1px solid black;
+            font-weight: bold; 
+            font-size: 18px;
+        }
+
+        .background {
+            background-color: blue;
+        }
+        
+        .under-line-custom {
+            text-align:left;
+            background-color:black; 
+            margin: 0px;
+        }
+        
+        .align-vertical-center {
+            vertical-align: middle; 
+            text-align:center;
+        }
+        
+        .content-padding-bottom-top {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        
+        .div-border-dashed {
+          height: 210px;
+          line-height: 80px;
+          text-align: center;
+          border: 2px dashed black;
+        }
+        
+        .flex-htmltopdf-vgroup {
+          display: flex; 
+          display: -webkit-flex;
+        }
+      </style>
+    </template>
+
+    <template id="qm_product_travel_control">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <t t-call="odes_qm_custom.qm_product_travel_control_res_template"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+        
+    <record id="paperformat_a4_no_header" model="report.paperformat">
+        <field name="name">Paper A4 No Header</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">5</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">80</field>
+
+    <record id="action_report_qm_product_travel_control" model="ir.actions.report">
+        <field name="name">QM Product Travel Control (PDF)</field>
+        <field name="model">mrp.production</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odes_qm_custom.qm_product_travel_control</field>
+        <field name="report_file">odes_qm_custom.qm_product_travel_control</field>
+        <field name="print_report_name">'QM Product Travel Control - %s' % object.name</field>
+        <field name="binding_model_id" ref="model_mrp_production"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="odes_qm_custom.action_report_qm_product_travel_control" model="ir.actions.report">
+        <field name="paperformat_id" ref="odes_qm_custom.paperformat_a4_no_header" />
+    </record>
+  </data>
+</odoo> -->

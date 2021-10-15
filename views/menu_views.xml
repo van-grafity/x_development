@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>  
+    <menuitem 
+        name="Rental" 
+        id="main_menu_rental" 
+        sequence="99"/>
+
+        <menuitem 
+            name="Customers" 
+            id="pmenu_customers" 
+            parent="main_menu_rental" 
+            action="view_customer_action" 
+            sequence="2"/>
+    
+        <menuitem 
+            name="Orders" 
+            id="pmenu_orders" 
+            parent="main_menu_rental" 
+            action="view_order_action" 
+            sequence="3"/>
+
+        <menuitem 
+            name="Menu" 
+            id="pmenu_rental" 
+            parent="main_menu_rental" 
+            sequence="4"/>
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="order_form" model="ir.ui.view">
+        <field name="name">rental.rental.view.form</field>
+        <field name="model">order.model</field>
+        <field name="arch" type="xml">
+            <form string="DETAIL">
+            <header>
+                <button name='show_order_wizard' string='Create Report' type='object' class='btn-primary'/>
+                <button string="Cancel" class="btn-default" special="cancel"/>
+            </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="car_id"/>
+                            <field name="start_rental_date"/>
+                            <field name="end_rental_date"/>
+                            <field name="expected_date"/>
+                            <field name="total_price"/>
+                            <field name="payment_status"/>
+                        </group>
+                    </group>
+                        <group string="List Order">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="car_name"/>
+                                    <field name="amount"/>
+                                    <field name="total_days"/>
+                                    <field name="subtotal"/>
+                                </tree>
+                            </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="order_tree" model="ir.ui.view">
+        <field name="model">order.model</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Templates">
+                <field name="name"/>
+                <field name="car_id"/>
+                <field name="start_rental_date"/>
+                <field name="end_rental_date"/>
+                <field name="expected_date"/>
+                <field name="total_price"/>
+                <field name="payment_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_order_action" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">order.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

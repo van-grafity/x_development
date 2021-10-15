@@ -1,0 +1,75 @@
+/*
+  The styles here for use when generating a PDF invoice with the HTML code.
+  * Set up a repeating page counter
+  * Place the .footer-info in the last page's footer
+*/
+
+.border-group-parent {
+  border: 3px solid;
+}
+
+.visibility-boder {
+  border-left: 0px solid black;
+  border-right: 0px solid black;
+  border-top: 0px solid black;
+  border-bottom: 0px solid black;
+}
+
+.under-line-custom {
+  text-align:left;
+  background-color:black; 
+  margin: 0px;
+}
+
+.align-vertical-center {
+  vertical-align: "middle"; 
+  text-align:"center";
+}
+
+.tdborder {
+  border: 1px solid black;
+}
+
+.fsize-small {
+  font-size: 12px;
+}
+
+.fsize-normal {
+  font-size: 14px;
+}
+
+.psize-normal-left {
+  padding: 14px;
+}
+
+.ste-title-padding-left {
+  padding-left: 20px;
+}
+
+.ste-title-size {
+  font-size: 16px;
+}
+
+.ste-content-padding-bottom-top {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+/* Underline Issue */
+.span-underline {
+  padding-bottom: 2px;
+  /* border-bottom: 1px solid rgb(0, 0, 0); */
+  border-bottom: 2px solid black;
+  line-height: 48px;
+}
+
+.twidth {
+  width: 100%;
+}
+
+.th-padding-top-bottom {
+  padding-top: 4px; 
+  padding-bottom: 4px;
+}
+
+

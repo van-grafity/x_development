@@ -1,0 +1,184 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <!-- <template id="report_odoo_style_assets" inherit_id="web.report_assets_common">
+            <xpath expr="." position="inside">
+                <link href="/odes_document_management_custom/static/src/css/styles.css" rel="stylesheet" type="text/css" />
+            </xpath>
+    </template> -->
+<!-- 
+    <record id="action_report_qm_prestartup" model="ir.actions.report">
+        <field name="paperformat_id" ref="mrp.paperformat_a4_no_header" />
+    </record> -->
+
+    <template id="qm_pre_startup_res_template">
+        <div>
+            <div>
+                <img class="img" src="/odes_qm_custom/static/img/ic_qm.png" style="width:80%; height: auto; display: block;  margin: auto;  position:absolute; z-index: 1;  left: 0; right: 0; bottom: -100px; overflow:hidden;"/>
+            </div>
+            <div style="padding-left: 14px; padding-right: 14px;">
+                <div class="ste-title-size ste-title-padding-left align-vertical-center" style="font-size: 20px; text-align:center;  margin-top: 100px;">
+                    <b><span style="font-size: 20px" t-raw="o.company_id.name"/> ENTERPRISES PTE LTD</b>
+                    <!-- <span class="fsize-normal text-center"  t-raw="o.id"/> -->
+                </div>
+
+                <div class="ste-content-padding-bottom-top" style="padding-left: 18px; padding-right: 18px;">
+                    <table style="width: 100%; border-bottom: 0px; border-left: 0px; border-right: 0px;">
+                        <tr>
+                            <td width="40%">
+                                <span style="font-size: 18px">Blender  Pre Start Up Check List</span>
+                            </td>
+                            <td width="100%">
+                                <!-- <span class="text-center"  t-raw="o.date" t-options='{"widget": "date", "format": "dd MMM Y"}'/> -->
+                            
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-top: 10px;" width="30%">
+                                <span style="font-size: 18px">Thick If Completed: </span>
+                            </td>
+                            <td width="100%">
+                                <span class="text-center" style="font-size: 18px"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-top: 10px;" width="30%">
+                                <span style="font-size: 18px">Production Date: </span>
+                            </td>
+                            <td width="100%">
+                                <span class="text-center" style="font-size: 18px" t-raw="o.date_planned_start"/>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;">
+                                <span style="font-size: 18px">Product Code: </span>
+                            </td>
+                            <td>
+                                <span style="font-size: 18px" t-raw="o.product_id.name"/>
+                            </td>
+                            <!--<td>-->
+                            <!--  <span>Batch no: </span>-->
+                            <!--</td>-->
+                        </tr>
+                    </table>
+                </div>
+                <div style="padding-left: 18px; padding-right: 18px;">
+                    <span class="tx-bold" style="padding-left: 4px; font-size: 18px">Pallet(Bla) : (AutoBla/ FumigationBla/ OLD Bla)</span>
+                </div>
+                <div style="padding-left: 18px; padding-right: 18px;">
+                    <table style="width: 100%; border: 1px solid black;">
+                        <thead>
+                            <tr>
+                                <td style="font-size: 22px; font-weight: bold; padding: 0px; padding-left: 4px; width: 10%; border: 1px solid black;">
+                                  <!--<span class="text-nowrap" style="font-size: 22px;" t-field="l.name" attrs="{'invisible': [('is_header', '=', True)]}"/>-->
+                                </td>
+                                <td class="text-center" style="padding: 0px; width: 10%; border: 1px solid black; font-size: 16px;">Perform By (Bla)</td>
+                                <td class="text-center" style="padding: 0px; width: 10%; border: 1px solid black; font-size: 16px;">Check By (Bla)</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.process_check_ids" t-as="l">
+                                <tr class="tborder">
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 22px;" t-field="l.name" attrs="{'invisible': [('is_header', '=', True)]}"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 22px;" t-field="l.check_user_id"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 22px;" t-field="l.supervisor_user_id"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <table style="width: 100%; border: 1px solid black;">
+                        <thead>
+                            <tr>
+                                <td style="font-size: 22px; font-weight: bold; padding: 0px; padding-left: 4px; width: 10%; border: 1px solid black;">Blablablabbla</td>
+                                <td class="text-center" style="padding: 0px; width: 10%; border: 1px solid black; font-size: 16px;"/>
+                                <td class="text-center" style="padding: 0px; width: 10%; border: 1px solid black; font-size: 16px;"/>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.process_check_ids" t-as="l">
+                                <tr class="tborder">
+                                   <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 22px;" t-field="l.name" attrs="{'invisible': [('is_header', '=', True)]}"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 22px;" t-field="l.check_user_id"/>
+                                    </td>
+                                    <td class="text-center" style="padding-top: 4px; padding-bottom: 4px; border: 1px solid black;">
+                                        <span class="text-nowrap" style="font-size: 22px;" t-field="l.supervisor_user_id"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="padding-left: 18px; margin-top: 22px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <span style="font-size: 18px">Review By: </span> 
+                            </td>
+                            <td colspan="3">
+                                <span style="padding-left: 18px;"/>_________________
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="qm_pre_startup_report">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <div class="header">
+                        <!-- <img class="img" src="/mrp/static/img/ic_qm.png" style="width:65%; height: auto; display: block;  margin: auto;  position:absolute; z-index: 1;  left: 0; right: 0; bottom: -100px; overflow:hidden;"/> -->
+                    </div>
+                    <div class="page border-round-body" style="padding-bottom: 82px;">
+                        <t t-call="odes_qm_custom.qm_pre_startup_res_template"/>
+                    </div>
+                    <div class="footer">
+                        <!-- This is Footer -->
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_a4_no_header" model="report.paperformat">
+            <field name="name">Paper A4 No Header</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">6</field>
+            <field name="margin_bottom">6</field>
+            <field name="margin_left">15</field>
+            <field name="margin_right">15</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="action_report_qm_prestartup" model="ir.actions.report">
+            <field name="name">QM Pre Start Up (PDF)</field>
+            <field name="model">mrp.production</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">odes_qm_custom.qm_pre_startup_report</field>
+            <field name="report_file">odes_qm_custom.qm_pre_startup_report</field>
+            <field name="print_report_name">'QM Pre Start Up - %s' % object.name</field>
+            <field name="binding_model_id" ref="model_mrp_production"/>
+            <field name="binding_type">report</field>
+        </record>
+</data>
+</odoo> -->
