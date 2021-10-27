@@ -10,6 +10,20 @@
                 <button string="Cancel" class="btn-default" special="cancel"/>
             </header>
                 <sheet>
+                    <!-- <div class="o_not_full oe_button_box">
+                        <field name="opportunity_id" invisible="1"/>
+                    </div>  -->
+                    <notebook position="inside">
+                       <page string="Notebook 1">
+                            <div class="oe_clear"/>
+                        </page>
+                        <page string="Notebook 2">
+                            <div class="oe_clear"/>
+                        </page>
+                        <page string="Notebook 3">
+                            <div class="oe_clear"/>
+                        </page>
+                    </notebook>
                     <group>
                         <group>
                             <field name="name"/>

@@ -1,34 +1,443 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- <template id="assets_frontend" inherit_id="website.assets_frontend" name="website_sale_product_configurator assets frontend">
-            <xpath expr="link[last()]" position="after">
-                <link rel="stylesheet" type="text/scss" href="/x_development/static/src/scss/styles.scss"/>
-            </xpath>
-        </template> -->
-
         <template id="cr_report_template">
-            <div class="report_document">
-                <div class="content clearfix">
-                    <div class='css_attribute_color'>Test</div>
+            <div>
+                <div class="fsize-24" style="text-align:center; margin-bottom: 8px;">
+                    <span><b>AUTO PACKING SYSTEM RECORD FORM</b></span>
+                </div>
+
+                <div>
+                    <table style="width: 100%; border: 0px;">
+                        <tr>
+                            <th class="fsize-20" style="width: 10%;padding-left: 4px; vertical-align: middle;">Product</th>
+                            <td style="width: 20%;"/>
+                            <th class="fsize-16" style="width: 40%; padding-left: 60px; vertical-align: middle; border: 0px;">Tank No.: _______________________</th>
+                        </tr>
+                        <tr>
+                            <th class="fsize-20" style="=padding-left: 4px; vertical-align: middle;">Batch No.</th>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <th class="fsize-20" style="padding-left: 4px; vertical-align: middle;">Data</th>
+                            <td class="fsize-20" style="width: 20%; vertical-align: middle;"/>
+                            <th class="fsize-16" style="width: 60%; padding-left: 60px; vertical-align: middle; border: 0px;">Set Weight : _______________________ KG</th>
+                        </tr>
+                        <tr>
+                            <th class="fsize-20" style="padding-left: 4px; vertical-align: middle;">Pack Type</th>
+                            <td>
+                                <div style="text-align:center;">
+                                    <span class="fsize-16"><b>20L / 25L / 30L</b></span>
+                                </div>
+                                <div style="margin-top: 5px; margin-bottom: 5px;"/>
+                                <div style="text-align:center;">
+                                    <span class="fsize-16"><b>(circle where approprite)</b></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- <td>
+                            Tank No.:
+                            Set Weight :
+                        </td> -->
+                    </table>
+                </div>
+                <div class="content-padding-bottom-top" style="padding-left: 16px; padding-right: 18px;">
+                    <span class="tx-bold" style="weight: 1; padding-left: 4px;"><b>Start Time : </b></span>
+                    <span class="fsize-20" style="padding-left: 144px; padding-right: 144px;"/>
+                    <span class="tx-bold fsize-20" style="weight: 1; padding-left: 4px;"><b>Finish Time : </b></span>
+                </div>
+
+                <div>
+                    <table style="width: 100%; border: 1px solid black;">
+                        <thead>
+                            <tr>
+                                <th class="align-vertical-center" style="width: 35%;">
+                                  <div class="fsize-20">Filling Machine Operator</div>
+                                  <div class="fsize-20">灌装机操作员</div>
+                                </th>
+                                <th class="align-vertical-center fsize-20" style="width: 30%;">Operator</th>
+                                <th class="align-vertical-center fsize-20" style="width: 35%;">Record</th>
+                            </tr>
+                            <tr>
+                                <td style="height: 10px; padding-left: 4px;">
+                                  <div class="fsize-16">1.Control Panel On</div>
+                                  <div class="fsize-16">控制面板开启</div>
+                                </td>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">2.Top-up Tank Washing</div>
+                                  <div class="fsize-16">储罐清洗</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Nozeel:</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">3.Hose Pipe Washing</div>
+                                  <div class="fsize-16">软管清洗</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>No. 1 __________ kg</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                <div class="fsize-16"> 4.Level Control Valve Ball-valve Wash</div>
+                                  <div class="fsize-16">液位控制阀球阀清洗</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>No. 2 __________ kg</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <!--#############################################################################  -->
+                             <tr>
+                                <th class="align-vertical-center fsize-20" style="width: 35%;">
+                                  <div>Drum Washing Machine Operator</div>
+                                  <div>滚筒洗衣机操作员</div>
+                                </th>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>No. 3 __________ kg</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">1.Open DI Water Value</div>
+                                  <div class="fsize-16">开放去离子水值</div>
+                                </td>
+                                <td/>
+                                <td style="width: 35%; border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>No. 4 __________ kg</b></span>
+                                  </div>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">2.Wahsing Chemical Flexi Hose</div>
+                                   <div class="fsize-16">洗涤化学品柔性软管</div>
+                                </td>
+                                <td/>
+                              <td style="border-top: 0px;"/>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">3.Filter Machine Washing</div>
+                                  <div class="fsize-16">过滤器机洗</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Red / White / Black / Green</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">4.Input The Filter</div>
+                                  <div class="fsize-16">输入过滤器</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Damage Cap (       )</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">5.Connecting Filter Hose</div>
+                                  <div class="fsize-16">连接过滤软管</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>RALCO ( ) SINGA ( )</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <!--#############################################################################  -->
+                            <tr>
+                                <th class="align-vertical-center" style="width: 35%;">
+                                  <div class="fsize-16">Filling Machine Operator</div>
+                                  <div class="fsize-16">灌装机操作员</div>
+                                </th>
+                                <th class="fsize-20" style="width: 30%;"/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Total: __________ sticker</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">1.Labling Machine Setting</div>
+                                  <div class="fsize-16">贴标机设置</div>
+                                </td>
+                                <td/>
+                                <td style="border-bottom: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Last 4 Drum Filled By:</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">2.Caping Machine Setting</div>
+                                  <div class="fsize-16">旋盖机设置</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-14" style="padding-left: 4px;"><b>No. ______________ kg   Checking By:______________</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">3.Control Panel Off/On</div>
+                                  <div class="fsize-16">控制面板关闭/开启</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:middle;">
+                                  <div>
+                                    <span class="fsize-14" style="padding-left: 4px;"><b>No. ______________ kg   Checking By:______________</b></span>
+                                  </div>
+                                  <div>
+                                    <span class="fsize-14" style="padding-left: 4px;"><b>No. ______________ kg   Checking By:______________</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">4.Control Panel Setting</div>
+                                  <div class="fsize-16">控制面板设置</div>
+                                </td>
+                                <td/>
+                                <td style="border: 0px; vertical-align:top;">
+                                  <div>
+                                    <span class="fsize-14" style="padding-left: 4px;"><b>No. ______________ kg   Checking By:______________</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">5.Robot Setting</div>
+                                  <div class="fsize-16">.机器人设置</div>
+                                </td>
+                                <td/>
+                                <td class="align-vertical-center" style="border-bottom: 0px; vertical-align:bottom;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Auto: ______________</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">6.Chop Checking</div>
+                                <div class="fsize-16">印章检查</div>  
+                                </td>
+                                <td/>
+                                <td class="text-center" style="border: 0px; vertical-align: top">
+                                   <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Manual: ______________</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">7.Sticker Checking</div>
+                                  <div class="fsize-16">贴纸检查</div>
+                                </td>
+                                <td/>
+                                <td class="align-vertical-center" style="border: 0px; padding-right: 14px;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Total: ______________</b></span>
+                                  </div>
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Balance: ______________</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">8.Cap Tight Checking</div>
+                                <div class="fsize-16">帽紧检查</div>  
+                                </td>
+                                <td/>
+                                <td class="align-vertical-center" style="border: 0px; padding-right: 14px;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Total: ______________</b></span>
+                                  </div>
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>Old Drum ______________</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 4px;">
+                                  <div class="fsize-16">5.Weight Checking</div>
+                                  <div class="fsize-16">重量检查</div>
+                                </td>
+                                <td/>
+                                <td class="align-vertical-center" style="border: 0px;">
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>New Drum ______________</b></span>
+                                  </div>
+                                  <div>
+                                    <span class="fsize-16" style="padding-left: 4px;"><b>RALCO ( )     SINGA ( )</b></span>
+                                  </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding-left: 4px; border-right: 0px;">
+                                  <div class="fsize-16">Pallet</div>
+                                <div class="text-center fsize-16">a. Auto Palllet: __________</div>
+                                </td>
+                                <td class="fsize-16" style="vertical-align:bottom; border-left: 0px; border-right: 0px;">b. Plastic Pallet __________</td>
+                                <td class="fsize-16" style="vertical-align:bottom; border-left: 0px;">c. Fumigation Pallet:</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding-left: 4px; border-right: 0px;">
+                                  <div class="fsize-16">Non-comformance</div>
+                                  <div class="fsize-16">Checking By __________</div>
+                                </td>
+                                <td style="border-left: 0px; border-right: 0px;"/>
+                                <td style="border-left: 0px; border-left: 0px;"/>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
+
+            <style type="text/css">
+                table, th, td {
+                    border: 1px solid black;
+                    table-layout:fixed;
+                }
+                
+                .fsize-14 {
+                  font-size: 16px;
+                }
+                
+                .fsize-16 {
+                  font-size: 18px;
+                }
+                
+                .fsize-16 {
+                  font-size: 18px;
+                }
+                
+                .fsize-20 {
+                  font-size: 20px;
+                }
+                
+                .fsize-24 {
+                  font-size: 24px;
+                }
+                
+                .fsize-26 {
+                  font-size: 26px;
+                }
+                
+                hr {
+                    max-width: 100px;
+                    margin: 0px;
+                }
+
+                .qmtitle {
+                    text-align: center; 
+                    padding-top: 8px; 
+                    border: 1px solid black;
+                    font-weight: bold; 
+                    font-size: 18px;
+                }
+
+                .background {
+                    background-color: blue;
+                }
+                
+                .under-line-custom {
+                    text-align:left;
+                    background-color:black; 
+                    margin: 0px;
+                }
+                
+                .align-vertical-center {
+                    vertical-align: middle; 
+                    text-align:center;
+                }
+                
+                .content-padding-bottom-top {
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                }
+            </style>
         </template>
 
         <template id="cr_report">
             <t t-call="web.html_container">
-                <div class="page">
-                    <t t-call="web.external_layout">
-                        <t t-foreach="docs" t-as="doc">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <div class="page">
                             <t t-call="x_development.cr_report_template"/>
-                        </t>
+                        </div>
                     </t>
-                </div>
+                </t>
             </t>
         </template>
 
-        <report id="action_cr_report" string="Print Book" model="order.model" report_type="qweb-pdf" file="x_development.cr_report_template" name="x_development.cr_report"/>
+        <record id="paperformat_a4_no_header" model="report.paperformat">
+            <field name="name">Paper A4 No Header</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">15</field>
+            <field name="margin_right">15</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
 
+        <report id="action_cr_report" 
+            string="Print Book" 
+            model="order.model" 
+            report_type="qweb-pdf" 
+            file="x_development.cr_report_template" 
+            name="x_development.cr_report"/>
+
+        <report id="action_cr_reportx" 
+            string="Print Book 1" 
+            model="order.model" 
+            report_type="qweb-pdf" 
+            file="x_development.cr_report_template" 
+            name="x_development.cr_report"/>
+
+        <record id="x_development.action_cr_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="x_development.paperformat_a4_no_header" />
+        </record>
     </data>
 
 </odoo>

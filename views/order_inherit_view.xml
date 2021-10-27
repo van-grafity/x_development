@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>  
+    <record id="order_tree_inherit" model="ir.ui.view">
+        <field name="name">order.model.view.form.inherit</field>
+        <field name="model">order.model</field>
+        <field name="inherit_id" ref="x_development.order_tree"/>
+        <field name="arch" type="xml">
+            <xpath>
+                <button name="action_crm_lead_view" type="object" class="oe_stat_button" icon="fa-file-o">
+                    <span>CRM</span>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

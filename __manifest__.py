@@ -14,13 +14,14 @@ This module gives a framework for my sample
 
 The service is provided by the In App Purchase Odoo platform.
 """,
-    'depends': [],
+    'depends': ['sale'],
     'data': [
         'security/ir.model.access.csv',
         'views/menu_views.xml',
         'views/customer_view.xml',
         'views/car_view.xml',
         'views/order_view.xml',
+        # 'views/order_inherit_view.xml',
         'wizard/order_wizard_view.xml',
         'report/order_report_template.xml',
     ],
