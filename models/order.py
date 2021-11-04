@@ -7,6 +7,7 @@ class Order (models.Model):
 
     # transaction_id = fields.Char('Transaction Id')
     transaction_id = fields.Integer(string='Transaction id', compute='_get_increment')
+    state = fields.Selection([('draft', 'Draft'), ('submit', 'Submit'), ('approved', 'Approved')])
     name = fields.Many2one('customer.model', 'name')
     car_id = fields.Char('Car Id')
     line_ids = fields.One2many('order.model.line', 'order_id', 'Line')
@@ -15,6 +16,14 @@ class Order (models.Model):
     expected_date = fields.Datetime("Expected Date")
     total_price = fields.Char("Total", compute='_get_amount_total')
     payment_status = fields.Boolean('Status', default=False)
+
+
+    def _compute_who_user_has_groups(self):
+        print("xIs user ?")
+        # if self.env.user.has_group('sales_team.group_sale_salesman'):
+        #     print("The User belongs to an Salesman Group")
+        # else:
+        #     print("Whoops! User does not belong to this Group")
 
     # atribut compute call function
     def _get_increment(self):
@@ -27,6 +36,27 @@ class Order (models.Model):
             for line in order.line_ids:
                 amount_total += line.subtotal
             order.write({'total_price': amount_total})
+
+    def button_draft(self):
+        print('xQm current state ->', self.state)
+        self.write({'state': 'draft'}) 
+        return {}
+
+    def button_confirm(self):
+        print('xQm current state ->', self.state)
+        for models in self:
+            if models.state == 'draft':
+                self.action_submit()
+            elif models.state == 'submit':
+                self.action_approve()
+
+    def action_submit(self):
+        self.ensure_one()
+        self.state = 'submit'
+    
+    def action_approve(self):
+        self.ensure_one()
+        self.state = 'approved'
 
     def show_order_wizard(self):
         context = {

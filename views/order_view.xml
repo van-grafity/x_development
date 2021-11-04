@@ -7,12 +7,14 @@
             <form string="DETAIL">
             <header>
                 <button name='show_order_wizard' string='Create Report' type='object' class='btn-primary'/>
-                <button string="Cancel" class="btn-default" special="cancel"/>
+                <button name='button_draft' string="Set to Draft" type='object' class="btn-default" />
+                <button name="button_confirm" string="Confirm" type="object" />
+                <field name="state" widget="statusbar" statusbar_visible="draft,submit,approved"/>
             </header>
                 <sheet>
                     <div class="o_not_full oe_button_box">
                         <field name="car_id" invisible="1"/>
-                        Hello
+                        Smart Button
                     </div> 
                     <notebook position="inside">
                        <page string="Notebook 1">

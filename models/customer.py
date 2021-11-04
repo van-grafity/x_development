@@ -11,3 +11,8 @@ class Customer(models.Model):
     address = fields.Char('Address')
     username = fields.Char('Username')
     password = fields.Char('Password')
+    is_admin = fields.Boolean('is Admin user')
+    is_customer = fields.Boolean('is Customer user')
+
+    def _compute_is_customer_user(self):
+        print("xIs Customer")

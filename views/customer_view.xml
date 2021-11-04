@@ -8,6 +8,8 @@
                 <sheet>
                     <group>
                         <group>
+                            <!-- <field name="is_admin" invisible="0"/>
+                            <field name="is_customer" invisible="0"/> -->
                             <field name="name"/>
                             <field name="identity_number"/>
                             <field name="email"/>
