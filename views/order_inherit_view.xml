@@ -3,12 +3,10 @@
     <record id="order_tree_inherit" model="ir.ui.view">
         <field name="name">order.model.view.form.inherit</field>
         <field name="model">order.model</field>
-        <field name="inherit_id" ref="x_development.order_tree"/>
+        <field name="inherit_id" ref="x_development.order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[1]" position="after">
-                <!-- <button name="action_crm_lead_view" type="object" class="oe_stat_button" icon="fa-file-o"> -->
-                    <span>CRM</span>
-                <!-- </button> -->
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button name="action_crm_lead_view" type="object" string="Test smart button" class="oe_stat_button" icon="fa-archive"></button>
             </xpath>
         </field>
     </record>

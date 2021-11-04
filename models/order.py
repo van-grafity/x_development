@@ -74,6 +74,17 @@ class Order (models.Model):
 
         return action
 
+    def action_crm_lead_view(self):
+            self.ensure_one()
+            action = {
+                'name': _('CRM'),
+                'type': 'ir.actions.act_window',
+                'view_mode': 'tree',
+                'res_model': 'order.model',
+                'res_id': self.car_id,            
+            }
+            return action
+
 class OrderLine (models.Model):
     _name = "order.model.line"
 
