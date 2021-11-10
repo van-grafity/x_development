@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="main_development_view_tree_inherit" model="ir.ui.view">
+        <field name="name">main.development.view.tree.inherit</field>
+        <field name="model">order.model</field>
+        <field name="inherit_id" ref="order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_status']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="main_development_view_form_inherit" model="ir.ui.view">
+        <field name="name">main.development.view.form.inherit</field>
+        <field name="model">order.model</field>
+        <field name="inherit_id" ref="order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='payment_status']" position="after">
+                <field name="gender"/>
+            </xpath>
+
+            <notebook position="inside">
+                <page string="Reward">
+                    <field name="main_ids">
+                        <tree>
+                            <field name="name_reward"/>
+                            <field name="price"/>
+                            <field name="qty"/>
+                            <field name="weight"/>
+                            <field name="amount_total"/>
+                            <field name="delivery_date"/>
+                            <field name="status"/>
+                            <field name="note"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

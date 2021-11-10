@@ -16,8 +16,8 @@ class Order (models.Model):
     expected_date = fields.Datetime("Expected Date")
     total_price = fields.Char("Total", compute='_get_amount_total')
     payment_status = fields.Boolean('Status', default=False)
-
-
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
+    main_ids = fields.One2many('main.development', 'main_id', string='Reward')
     def _compute_who_user_has_groups(self):
         print("xIs user ?")
         # if self.env.user.has_group('sales_team.group_sale_salesman'):
