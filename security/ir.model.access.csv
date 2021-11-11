@@ -2,6 +2,8 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_xdev_rental,access.xdev.rental,model_xdev_rental,,1,1,1,1
 access_customer_model,access.ccustomer.model,model_customer_model,,1,1,1,1
 access_order_model,access.order.model,model_order_model,,1,1,1,1
+access_app_pembagian_hasil_reward_promotion,access.app.pembagian.hasil.reward.promotion,model_app_pembagian_hasil_reward_promotion,,1,1,1,1
+access_app_sp_tunggakan_history,access.app.sp.tunggakan.history,model_app_sp_tunggakan_history,,1,1,1,1
 access_main_development,access.main.development,model_main_development,,1,1,1,1
 access_order_model_line,access.order.model.line,model_order_model_line,,1,1,1,1
-access_xdev_order_wizard,access.xdev.order.wizard,model_xdev_order_wizard,,1,1,1,1
+access_app_sp_tunggakan_wizard,access.app.sp.tunggakan.wizard,model_app_sp_tunggakan_wizard,,1,1,1,1

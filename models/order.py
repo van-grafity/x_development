@@ -11,13 +11,15 @@ class Order (models.Model):
     name = fields.Many2one('customer.model', 'name')
     car_id = fields.Char('Car Id')
     line_ids = fields.One2many('order.model.line', 'order_id', 'Line')
-    start_rental_date = fields.Datetime("Start Rental Date")
+    start_rental_date = fields.Date("Start Rental Date")
     end_rental_date = fields.Datetime("End Rental Date")
-    expected_date = fields.Datetime("Expected Date")
+    expected_date = fields.Date("Expected Date")
     total_price = fields.Char("Total", compute='_get_amount_total')
     payment_status = fields.Boolean('Status', default=False)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
-    main_ids = fields.One2many('main.development', 'main_id', string='Reward')
+    reward_ids = fields.One2many('app.pembagian.hasil.reward.promotion', 'order_id', string='Reward')
+    sp_history_ids = fields.One2many('app.sp.tunggakan.history', 'order_id', string='Rekening Bank')
+
     def _compute_who_user_has_groups(self):
         print("xIs user ?")
         # if self.env.user.has_group('sales_team.group_sale_salesman'):
@@ -58,14 +60,14 @@ class Order (models.Model):
         self.ensure_one()
         self.state = 'approved'
 
-    def show_order_wizard(self):
+    def show_tunggakan_wizard(self):
         context = {
             'default_name' : self.car_id
         }
 
         action = {
             'name': _('Detail Order'),
-            'res_model': 'xdev.order.wizard',
+            'res_model': 'app.sp.tunggakan.wizard',
             'view_mode': 'form',
             'type': 'ir.actions.act_window',
             'target':'new',

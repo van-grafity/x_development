@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="app_sp_tunggakan_wizard">
+        <field name="name">app_sp.tunggakan.wizard</field>
+        <field name="model">app.sp.tunggakan.wizard</field>
+        <field name="arch" type="xml">
+             <form string="Print Tunggakan">
+                <group col="4">
+                    <field name="document_type" required="1"/>
+                    <field name="document_no" readonly="1"/>
+                    <field name="document_last_date" readonly="1"/>
+                    <field name="order_id" readonly="1"/>
+                </group>
+                 <group string="SP History">
+                            <field name="histories_ids" readonly="1" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="document_type" string="Document Type" />
+                                    <field name="document_date" string="Document Date" />
+                                </tree>
+                            </field>
+                    </group>
+                <footer>
+                    <button name="action_continue" type="object" string="Print" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>           
+        </field>
+    </record>
+</odoo>

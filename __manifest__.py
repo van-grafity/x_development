@@ -12,6 +12,7 @@
 This module gives a framework for my sample
 ----------------------------------------------------
 
+# 'depends': ['sale','base','web_map','stock','purchase']
 The service is provided by the In App Purchase Odoo platform.
 """,
     'depends': ['sale'],
@@ -21,9 +22,8 @@ The service is provided by the In App Purchase Odoo platform.
         'views/customer_view.xml',
         'views/car_view.xml',
         'views/order_view.xml',
-        'views/order_inherit_view.xml',
         'views/main_development_view.xml',
-        'wizard/order_wizard_view.xml',
+        'wizard/app_sp_tunggakan_wizard.xml',
         'report/order_report_template.xml',
     ],
     'demo': [],

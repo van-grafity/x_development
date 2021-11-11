@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="order_tree_inherit" model="ir.ui.view">
+        <field name="name">order.model.view.form.inherit</field>
+        <field name="model">order.model</field>
+        <field name="inherit_id" ref="x_development.order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button name="action_crm_lead_view" type="object" string="Test smart button" class="oe_stat_button" icon="fa-archive"></button>
+            </xpath>
+        </field>
+    </record>
+
     <record id="main_development_view_tree_inherit" model="ir.ui.view">
         <field name="name">main.development.view.tree.inherit</field>
         <field name="model">order.model</field>
@@ -22,8 +33,17 @@
             </xpath>
 
             <notebook position="inside">
+                <page string="SP History">
+                    <field name="sp_history_ids">
+                        <tree create="0" edit="0" delete="0">
+                            <field name="document_type" string="Document Type"/>
+                            <field name="document_no" string="Document No."/>
+                            <field name="document_date" string="Document Date"/>
+                        </tree>
+                    </field>
+                </page>
                 <page string="Reward">
-                    <field name="main_ids">
+                    <field name="reward_ids">
                         <tree>
                             <field name="name_reward"/>
                             <field name="price"/>
