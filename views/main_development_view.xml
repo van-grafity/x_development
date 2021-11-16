@@ -28,8 +28,29 @@
         <field name="inherit_id" ref="order_form"/>
         <field name="arch" type="xml">
 
+            <xpath expr="//form//sheet" position="before">
+                    <header>
+                        <button string="Pembatalan"/>
+                    </header>
+                </xpath>
+
             <xpath expr="//field[@name='payment_status']" position="after">
                 <field name="gender"/>
+            </xpath>
+            <xpath expr="//field[@name='payment_status']" position="replace">
+                <field name="last_sp_doc_no" invisible="0"/>
+            </xpath>
+
+            <xpath expr="//field[@name='last_sp_doc_no']" position="after">
+                <field name="last_sp_printed" invisible="0"/>
+            </xpath>
+
+            <xpath expr="//field[@name='last_sp_printed']" position="after">
+                <field name="last_sp_doc_date" invisible="0"/>
+            </xpath>
+
+            <xpath expr="//field[@name='last_sp_doc_date']" position="after">
+                <field name="last_cancel_printed_no" invisible="0"/>
             </xpath>
 
             <notebook position="inside">

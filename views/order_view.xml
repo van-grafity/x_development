@@ -17,30 +17,29 @@
                     </div> 
                     <notebook position="inside">
                        <page string="Order">
-                            <div class="oe_clear"/>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="car_id"/>
+                                    <field name="start_rental_date"/>
+                                    <field name="end_rental_date"/>
+                                    <field name="expected_date"/>
+                                    <field name="total_price"/>
+                                    <field name="payment_status"/>
+                                </group>
+                            </group>
+                            <group string="List Order">
+                                <field name="line_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="car_name"/>
+                                        <field name="amount"/>
+                                        <field name="total_days"/>
+                                        <field name="subtotal"/>
+                                    </tree>
+                                </field>
+                            </group>
                         </page>
                     </notebook>
-                    <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="car_id"/>
-                            <field name="start_rental_date"/>
-                            <field name="end_rental_date"/>
-                            <field name="expected_date"/>
-                            <field name="total_price"/>
-                            <field name="payment_status"/>
-                        </group>
-                    </group>
-                        <group string="List Order">
-                            <field name="line_ids" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="car_name"/>
-                                    <field name="amount"/>
-                                    <field name="total_days"/>
-                                    <field name="subtotal"/>
-                                </tree>
-                            </field>
-                    </group>
                 </sheet>
             </form>
         </field>

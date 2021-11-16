@@ -20,6 +20,11 @@ class Order (models.Model):
     reward_ids = fields.One2many('app.pembagian.hasil.reward.promotion', 'order_id', string='Reward')
     sp_history_ids = fields.One2many('app.sp.tunggakan.history', 'order_id', string='Rekening Bank')
 
+    last_sp_printed = fields.Integer('Last printed SP')
+    last_sp_doc_no = fields.Char('Last printed SP No.')
+    last_sp_doc_date = fields.Date('Last printed SP Date.')
+    last_cancel_printed_no = fields.Char('Last SP cancelled No.')
+
     def _compute_who_user_has_groups(self):
         print("xIs user ?")
         # if self.env.user.has_group('sales_team.group_sale_salesman'):

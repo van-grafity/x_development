@@ -12,3 +12,13 @@ class AppPembagianHasilRewardPromotion(models.Model):
     delivery_date = fields.Datetime(string='Tanggal Penyerahan Hadiah', required=True, index=True)
     status = fields.Selection([('OK', 'ok'), ('Belum', 'belum')])
     note = fields.Char('Catatan', required=True)
+
+    def print_test(self):
+        for order in self:
+            print('get_booking_id', order.order_id)
+
+    @api.depends('qty', 'price')
+    def _compute_total(self):
+        for reward in self:
+            reward.amount_total = reward.qty * reward.price
+            reward.print_test()
