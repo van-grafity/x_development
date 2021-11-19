@@ -2,8 +2,14 @@
 from odoo.tools.populate import compute
 from odoo import api, fields, models, SUPERUSER_ID, _
 
+from dateutil.relativedelta import relativedelta
+from time import gmtime, strftime
+from datetime import datetime, timezone, timedelta
+from datetime import date
+
 class Order (models.Model):
     _name = "order.model"
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
 
     # transaction_id = fields.Char('Transaction Id')
     transaction_id = fields.Integer(string='Transaction id', compute='_get_increment')
@@ -11,9 +17,9 @@ class Order (models.Model):
     name = fields.Many2one('customer.model', 'name')
     car_id = fields.Char('Car Id')
     line_ids = fields.One2many('order.model.line', 'order_id', 'Line')
-    start_rental_date = fields.Date("Start Rental Date")
-    end_rental_date = fields.Datetime("End Rental Date")
-    expected_date = fields.Date("Expected Date")
+    start_rental_date = fields.Date("Start Rental Date", track_visibility='onchange')
+    end_rental_date = fields.Datetime("End Rental Date", track_visibility='onchange')
+    expected_date = fields.Date("Expected Date", track_visibility='onchange')
     total_price = fields.Char("Total", compute='_get_amount_total')
     payment_status = fields.Boolean('Status', default=False)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
@@ -25,6 +31,15 @@ class Order (models.Model):
     last_sp_doc_date = fields.Date('Last printed SP Date.')
     last_cancel_printed_no = fields.Char('Last SP cancelled No.')
 
+    received_date = fields.Date()
+    experiment_date = fields.Date(string="Fill in by 1 weeks")
+    is_one_weeks = fields.Boolean(compute="compute_schedule_experiment_date_by_weeks")
+    late_one_weeks = fields.Char(style="color: red;")
+    result_trial_date = fields.Text()
+    is_one_month = fields.Boolean(compute="compute_trial_result_by_month")
+    late_one_month = fields.Char(style="color: red;")
+    result_date = fields.Date(string="Fill result date 1 month")
+
     def _compute_who_user_has_groups(self):
         print("xIs user ?")
         # if self.env.user.has_group('sales_team.group_sale_salesman'):
@@ -33,6 +48,7 @@ class Order (models.Model):
         #     print("Whoops! User does not belong to this Group")
 
     # atribut compute call function
+
     def _get_increment(self):
         self.transaction_id = 1 + 100
 
@@ -91,6 +107,52 @@ class Order (models.Model):
                 'res_id': self.car_id,            
             }
             return action
+
+    # FOR TEST is_one_month set to is_one_weeks on ui and base on values == date_days
+    # if one week before customer received date
+    def compute_schedule_experiment_date_by_weeks(self):
+        for item in self:
+            if(item.received_date):
+                date_days= (item.received_date + relativedelta(days =+7)).strftime('%Y-%m-%d')
+                todays = strftime("%Y-%m-%d", gmtime())
+                print('xToday ', todays)
+
+                if  "2021-11-18" >= date_days and item.experiment_date == False:
+                    item.is_one_weeks = False
+                    item.late_one_weeks = 'Cannot empty is schedule experiment date'
+                else:
+                    item.is_one_weeks = True
+                    item.late_one_weeks = ''
+            else:
+                item.is_one_weeks = False
+        print('xisEmpty by weeks ',item.is_one_weeks)
+        self.env.cr.execute(
+                """
+                select start_rental_date from order_model
+                """
+            )
+        product_query = self.env.cr.fetchall()
+        if product_query:
+            for x in product_query:
+                x_id = x[0]
+                print('xQueryOrderModel ', x_id)
+
+    # if one month before customer received date
+    def compute_trial_result_by_month(self):
+        for item in self:
+            if(item.received_date):
+                date_month= (item.received_date + relativedelta(months=+1)).strftime('%Y-%m')
+                todays = strftime("%Y-%m-%d", gmtime())
+
+                if "2021-11-18" >= date_month and item.result_trial_date == False:
+                    item.is_one_month = False
+                    item.late_one_month = 'Cannot empty is trial results and analysis'
+                else:
+                    item.is_one_month = True
+                    item.late_one_month = ''
+            else:
+                item.is_one_month = False
+        print('xisEmpty by month ',item.is_one_month)
 
 class OrderLine (models.Model):
     _name = "order.model.line"

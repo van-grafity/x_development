@@ -28,11 +28,15 @@
         <field name="inherit_id" ref="order_form"/>
         <field name="arch" type="xml">
 
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/x_development/static/src/css/styles.css"/>
+            </xpath>
+
             <xpath expr="//form//sheet" position="before">
-                    <header>
-                        <button string="Pembatalan"/>
-                    </header>
-                </xpath>
+                <header>
+                    <button string="Pembatalan" class="oe_highlight"/>
+                </header>
+            </xpath>
 
             <xpath expr="//field[@name='payment_status']" position="after">
                 <field name="gender"/>
@@ -76,6 +80,24 @@
                             <field name="note"/>
                         </tree>
                     </field>
+                </page>
+                <page string="Customer Received">
+                    <group>
+                        <group>
+                            <field name="received_date" string="Customer received sample date"/>
+                            <field name="is_one_weeks" invisible="1" />
+                            <field name="result_date" string="Trial Result Date"/>                                    
+                        </group>
+
+                        <group>
+                            <field name="experiment_date" string="Schedule experiment date:"/>  
+                            <field name="late_one_weeks" style="color: red;" attrs="{'invisible': [('is_one_weeks', '==', True)]}" nolabel="1"/>                             
+                            <field name="is_one_month" invisible="1"/>
+                        </group>                                
+                    </group>
+                    <label for="result_trial_date" string="Trial Result"/>
+                    <field name="result_trial_date" nolabel="1"/>
+                    <field name="late_one_month" style="color: red;" attrs="{'invisible': [('is_one_month', '==', True)]}"/>
                 </page>
             </notebook>
         </field>

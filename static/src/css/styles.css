@@ -4,6 +4,24 @@
   * Place the .footer-info in the last page's footer
 */
 
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled {
+  background: yellow;
+}
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled::after {
+  border-left-color: yellow;
+}
+
+.o_main_navbar {background-color: #db7979;border-bottom: 0px;}
+.o_main_navbar .show .dropdown-toggle {background-color: #5a7b87;}
+.o_main_navbar > ul > li > a:hover, .o_main_navbar 
+               > ul > li > label:hover {background-color: #4a666f;}
+.o_main_navbar > a:hover, .o_main_navbar > a:focus, .o_main_navbar 
+               > button:hover, .o_main_navbar 
+               > button:focus {background-color: #4a666f;color: inherit;}
+.o_main_navbar > a:hover, .o_main_navbar > a:focus, .o_main_navbar 
+               > button:hover, .o_main_navbar 
+               > button:focus {background-color: #4a666f;color: inherit;}   
+
 .border-group-parent {
   border: 3px solid;
 }
