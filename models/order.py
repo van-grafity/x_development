@@ -102,7 +102,7 @@ class Order (models.Model):
             action = {
                 'name': _('CRM'),
                 'type': 'ir.actions.act_window',
-                'view_mode': 'tree',
+                'view_mode': 'tree,form',
                 'res_model': 'order.model',
                 'res_id': self.car_id,            
             }

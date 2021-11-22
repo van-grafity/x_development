@@ -2,7 +2,8 @@
 <odoo>  
     <menuitem 
         name="Rental" 
-        id="main_menu_rental" 
+        id="main_menu_rental"
+        web_icon="x_development,static/src/img/car_white.png"
         sequence="99"/>
 
         <menuitem 

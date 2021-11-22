@@ -44,6 +44,6 @@
     <menuitem name="Car" 
         id="rental_child"
         parent="pmenu_rental"
-        action="x_development_action" 
+        action="x_development_action"
         sequence="4"/>  
 </odoo>
