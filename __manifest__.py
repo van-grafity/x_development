@@ -15,16 +15,23 @@ This module gives a framework for my sample
 # 'depends': ['sale','base','web_map','stock','purchase']
 The service is provided by the In App Purchase Odoo platform.
 """,
-    'depends': ['sale'],
+    'depends': ['sale','base_setup'],
     'data': [
         'security/ir.model.access.csv',
+
         'views/menu_views.xml',
         'views/customer_view.xml',
         'views/car_view.xml',
         'views/order_view.xml',
         'views/main_development_view.xml',
+        'views/pembagian_hasil_view.xml',
+
         'wizard/app_sp_tunggakan_wizard.xml',
-        'report/order_report_template.xml',
+        'wizard/app_pembagian_hasil_penjualan_wizard_view.xml',
+
+        'report/qm_auto_packing_report.xml',
+        'report/odes_coa_check_report.xml',
+        'report/app_journal_print_report.xml',
     ],
     'demo': [],
     'qweb': [],

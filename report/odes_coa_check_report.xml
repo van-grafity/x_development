@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="odes_coa_check_report">
+            <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">            
+            <div class="article">
+<!--             <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/> -->
+                <div class="page">
+                    <style type="text/css">
+                        .container {
+                            padding: 0 !important;
+                        }
+                        .border-round-body {
+                            border: 2px solid #000000 !important; 
+                            border-radius: 30px; 
+                            border-collapse: separate; 
+                            margin-top: 60px;
+                        }
+                    </style>
+
+                    <!-- <div class="ste-title-size ste-title-padding-left align-vertical-center" style="padding-top: 8.5px;">
+                        <div class="text-center" style="display: block;  margin: auto;  position:absolute; z-index: 1;  left: 0; right: 0; bottom: -100px; overflow:hidden;">
+                            <img class="img" src="/x_development/static/img/ic_qm.png" style="width:82%; height: auto;"/>
+                        </div>
+                    </div> -->
+                    <div style="width: 210mm; height: 297mm;; float:middle; margin:0; padding:0; padding-top: 20px;">
+                        <div class="text-center" style="display: block;  margin: auto;  position:absolute; z-index: 1;  left: 0; right: 0; bottom: -100px; overflow:hidden;">
+                            <img class="img" src="/x_development/static/img/ic_qm.png" style="width:82%; height: auto;"/>
+                        </div>
+                        <div class="border-round-body" style="margin-left: 10px; width:100%; height:90%; border: 1px solid black; padding-top: 50px;">
+                            <div class="text-center">
+                                <b><span style="font-size: 20px">企业私人有限公司</span></b>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </t>
+            </t>
+        </template>
+
+        <record id="paperformat_a4_no_header" model="report.paperformat">
+            <field name="name">Paper A4 No Header</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="action_report_odes_coa_check" model="ir.actions.report">
+            <field name="name">Coa Check</field>
+            <field name="model">order.model</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">x_development.odes_coa_check_report</field>
+            <field name="report_file">x_development.odes_coa_check_report</field>
+            <field name="binding_model_id" ref="model_order_model"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="paperformat_a4_no_header"/>
+        </record>
+    </data>
+</odoo>

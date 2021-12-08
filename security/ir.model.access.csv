@@ -7,3 +7,4 @@ access_app_sp_tunggakan_history,access.app.sp.tunggakan.history,model_app_sp_tun
 access_main_development,access.main.development,model_main_development,,1,1,1,1
 access_order_model_line,access.order.model.line,model_order_model_line,,1,1,1,1
 access_app_sp_tunggakan_wizard,access.app.sp.tunggakan.wizard,model_app_sp_tunggakan_wizard,,1,1,1,1
+access_app_pembagian_hasil_penjualan_wizard,app.pembagian.hasil.penjualan.wizard,model_app_pembagian_hasil_penjualan_wizard,,1,1,1,1

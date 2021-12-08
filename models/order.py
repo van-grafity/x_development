@@ -14,10 +14,12 @@ class Order (models.Model):
     # transaction_id = fields.Char('Transaction Id')
     transaction_id = fields.Integer(string='Transaction id', compute='_get_increment')
     state = fields.Selection([('draft', 'Draft'), ('submit', 'Submit'), ('approved', 'Approved')])
+    user_id = fields.Many2one('res.users', string='User', track_visibility='onchange', readonly=True, 
+                      states={'draft': [('readonly', False)]}, default=lambda self: self.env.user)
     name = fields.Many2one('customer.model', 'name')
     car_id = fields.Char('Car Id')
     line_ids = fields.One2many('order.model.line', 'order_id', 'Line')
-    start_rental_date = fields.Date("Start Rental Date", track_visibility='onchange')
+    start_rental_date = fields.Date("Start Rental Date", track_visibility='onchange', required=True)
     end_rental_date = fields.Datetime("End Rental Date", track_visibility='onchange')
     expected_date = fields.Date("Expected Date", track_visibility='onchange')
     total_price = fields.Char("Total", compute='_get_amount_total')
@@ -48,6 +50,13 @@ class Order (models.Model):
         #     print("Whoops! User does not belong to this Group")
 
     # atribut compute call function
+
+    @api.model
+    def create(self, vals):
+        res = super(Order, self).create(vals)
+        dt = datetime.combine(self.start_rental_date, datetime.min.time())
+        print('xstart_date ', dt)
+        return res
 
     def _get_increment(self):
         self.transaction_id = 1 + 100

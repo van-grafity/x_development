@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+     <!-- Form untuk memilih sales person dan tanggal mulai dan tanggal akhir -->
+        <record id="app_investor_percent_wizard" model="ir.ui.view">
+            <field name="name">Sales Report in Excel Format</field>
+            <field name="model">app.pembagian.hasil.penjualan.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Sales Report in Excel Format">
+                    <group>
+                        <div>**Nanti Deskripsi akan diisi disini**</div>
+                        <group>
+                            
+                            <field name="user_id" required="1"/>
+                            <field name="state" required="1"/>
+                        </group>
+                    </group>
+                    <footer>                   
+                        <button name="print_pembagian_hasil_xlsx" string="Export (XLS)" type="object"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    <record id="action_app_pembagian_hasil_penjualan" model="ir.actions.act_window">
+        <field name="name">Report in Excel Format</field>
+        <field name="res_model">app.pembagian.hasil.penjualan.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="Wizard Generate xlsx" parent="pmenu_investor_persen" id="cmenu_investor_presen" action="action_app_pembagian_hasil_penjualan" sequence="15"/>
+
+</odoo>

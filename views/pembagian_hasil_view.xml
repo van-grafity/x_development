@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pembagian_hasil_tree" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Pembagian Hasil">
+                <field name="name" context="{'form_view_ref': 'view_partner_form'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_app_pembagian_hasil_investor_1" model="ir.actions.act_window">
+        <field name="name">Investor</field>
+        <field name="res_model">res.partner</field>
+        <!-- <field name="domain_force">[["is_investor","=",True]]</field> -->
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="context">{'tree_view_ref': 'x_development.app_investor_tree_view', 'form_view_ref': 'x_development.view_partner_form',}</field> -->
+    </record>
+
+    <menuitem id="pembagian_hasil_menu_root"
+            name="Pembagian Hasil"
+            action = "action_app_pembagian_hasil_investor_1"
+            web_icon="x_development,static/src/img/pembagian_hasil.png"
+            sequence="22"/>
+
+    <menuitem name="Configuration" parent="pembagian_hasil_menu_root" id="pmenu_configuration" sequence="16"/>
+    <menuitem name="Investor List" parent="pmenu_configuration" id="cmenu_investor" action="action_app_pembagian_hasil_investor_1" sequence="14"/>
+
+    <menuitem name="Investor" parent="pembagian_hasil_menu_root" id="pmenu_investor_persen" sequence="17"/>
+</odoo> 
